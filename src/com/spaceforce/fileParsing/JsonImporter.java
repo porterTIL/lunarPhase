@@ -1,6 +1,7 @@
 package com.spaceforce.fileParsing;
 
 
+import com.spaceforce.obj.Item;
 import com.spaceforce.obj.Location;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -17,12 +18,26 @@ public class JsonImporter {
         try {
             location = objectMapper.readValue(new File(path), Location.class);
         } catch (JsonMappingException e){
+            System.out.println(e.getLocation());
             throw new JsonFileException("Writers broke JSON file: " + path, e);
         }
         catch (IOException e){
             System.out.println(e.getMessage());
         }
         return location;
+    }
+
+    //Creates an item instance from JSON file
+    public static Item parseItem(String path) throws IOException {
+        Item item = null;
+        try{
+            item = objectMapper.readValue(new File(path), Item.class);
+        } catch (JsonMappingException e){
+            throw new JsonFileException("Writers broke JSON file: " + path, e);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return item;
     }
 
 
