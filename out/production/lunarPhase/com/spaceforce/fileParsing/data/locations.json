@@ -1,5 +1,15 @@
 [
   {
+    "name": "Test Site",
+    "introMessage": "A rather bland testing facility",
+    "items": [
+      {
+        "name": "item",
+        "description": "It's an item alright, although you can't tell much more."
+      }
+    ]
+  },
+  {
     "description": "Spaceport"
   },
   {

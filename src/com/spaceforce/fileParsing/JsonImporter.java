@@ -35,6 +35,7 @@ public class JsonImporter {
         //If json file has location of that id return it. Else throw exception
             if(locationNodes.has(id)){
                  location = objectMapper.readValue(locationNodes.get(id), Location.class);
+                System.out.println(location.introMessage);
                  return location;
             }
         if(location == null) throw new IOException("Location of id:"+id+" does not exist in json data file");

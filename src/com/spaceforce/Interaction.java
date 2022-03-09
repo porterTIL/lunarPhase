@@ -1,3 +1,5 @@
+package com.spaceforce;
+
 public interface Interaction {
     void talk();
     void look();

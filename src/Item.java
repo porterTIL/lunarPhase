@@ -1,6 +1,8 @@
+import com.spaceforce.Interaction;
+
 import java.io.File;
 
-public class Item implements Interaction{
+public class Item implements Interaction {
     File itemFile;
 
     // should we have an index of location files and give each location it's own file?

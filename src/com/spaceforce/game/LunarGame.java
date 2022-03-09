@@ -1,7 +1,25 @@
 package com.spaceforce.game;
 
-public class LunarGame {
+import com.spaceforce.fileParsing.JsonImporter;
+import com.spaceforce.obj.Location;
 
+import java.io.IOException;
+import java.util.Scanner;
+
+public class LunarGame {
+    public static void main(String[] args) throws IOException { // be mad >:(
+        Scanner in = new Scanner(System.in);
+        Location currentLocation = JsonImporter.parseLocation(0);
+        String[] input = null;
+        while(true){
+            while(input == null||input.length != 2) input = parseInput(in.nextLine());
+            currentLocation.parseCommand(input[0], input[1]);
+            input=null;
+        }
+    }
+    static String[] parseInput(String scannerIn){
+        return scannerIn.split(" ");
+    }
    /* String playerCommands[] = new ArrayList<>("look", "take", "go");
     List<String> worldObjects = new ArrayList<>("North", "East", "West", "South");
     Scanner input = new Scanner(System.in);
