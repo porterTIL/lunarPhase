@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/lunarCycle.iml" filepath="$PROJECT_DIR$/lunarCycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lunarPhase.iml" filepath="$PROJECT_DIR$/lunarPhase.iml" />
     </modules>
   </component>
 </project>
