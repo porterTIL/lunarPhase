@@ -11,6 +11,11 @@ public class Driver {
         System.out.println("Press any key to start the game.");
         userInput.nextLine();
 
+        System.out.println("These are your commands.");
+        System.out.println("Talk, Look, Pickup, Go, Use, Drop");
+        System.out.println("You can try to scream but no one will hear you.");
+        System.out.println("You can combine these verbs with either location, person, or item.");
+        System.out.println("Example: Go spaceport");
 
         System.out.println("Welcome to spaceport that you called home.... for now.");
         System.out.println("In the middle of the room there is an empty paper coffee cup");
