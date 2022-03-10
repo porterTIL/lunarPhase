@@ -106,6 +106,15 @@ public class Driver {
             System.out.println("You went north!");
             System.out.println("Whoops bad hint. You died!");
             System.out.println("New Hint: I'm an unreliable narrator!");
+        } else {
+            System.out.println("These are your commands.");
+            System.out.println("Talk, Look, Pickup, Go, Use, Drop");
+            System.out.println("You can try to scream but no one will hear you.");
+            System.out.println("You can combine these verbs with either location, person, or item.");
+            System.out.println("Example: Go spaceport");
+            System.out.println("To look at current inventory. Type in \"Inventory\"");
+            System.out.println(" What would you like to do? Hint: go north maybe");
+            System.out.println("To quit type in the letter \"Q\"");
         }
     }
 }
