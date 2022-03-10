@@ -91,7 +91,18 @@ public class Driver {
                 System.out.println("You see there is garbage next to the Creeper and tell him to pick it");
                 System.out.println("Creeper picks up his garbage and starts to walk away and drops it back on the ground");
             }
-        } else if (choice.equalsIgnoreCase("Go North")) {
+        } else if (choice.equalsIgnoreCase("Look North")) {
+            System.out.println("That's where the the little voice told you to go");
+            System.out.println("Its tantalizing");
+        } else if (choice.equalsIgnoreCase("Look Creep")) {
+            System.out.println("Creep notices you staring. He thinks you are a creep now.");
+        } else if (choice.equalsIgnoreCase("Look Garbage")){
+            System.out.println("Looks like its the Creeps garbage.");
+        } else if(choice.equalsIgnoreCase("Look Terminal")) {
+            System.out.println("Terminal is filled with random travelers going places. " +
+                    "While you panic about losing the company spaceship");
+        }
+        else if (choice.equalsIgnoreCase("Go North")) {
             System.out.println("You went north!");
             System.out.println("Whoops bad hint. You died!");
             System.out.println("New Hint: I'm an unreliable narrator!");
