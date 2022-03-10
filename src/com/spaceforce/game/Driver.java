@@ -19,6 +19,7 @@ public class Driver {
         System.out.println("You can try to scream but no one will hear you.");
         System.out.println("You can combine these verbs with either location, person, or item.");
         System.out.println("Example: Go spaceport");
+        System.out.println("To look at current inventory. Type in \"Inventory\"");
 
         System.out.println("Welcome to spaceport that you called home.... for now.");
         System.out.println("In the middle of the room there is an empty paper coffee cup");
@@ -36,7 +37,7 @@ public class Driver {
             for (String item : inventory) {
                 System.out.println(item);
             }
-        } else if (choice.equalsIgnoreCase("y")) {
+        } else if (choice.equalsIgnoreCase("Go North")) {
             System.out.println("You went north!");
             System.out.println("Whoops bad hint. You died!");
             System.out.println("New Hint: I'm an unreliable narrator!");
