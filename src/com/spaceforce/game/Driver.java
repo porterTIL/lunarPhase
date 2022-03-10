@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class Driver {
     public static void main(String[] args) {
         int health = 3;
-        String[] inventory = {"Single Broken Cigarette"};
+        String[] inventory = new String[10];
+        inventory[0] = "Single Broken Cigarette";
         Scanner userInput = new Scanner(System.in);
 
         System.out.println("This is a text based adventure where you lost the company spaceship.");
@@ -101,6 +102,19 @@ public class Driver {
         } else if(choice.equalsIgnoreCase("Look Terminal")) {
             System.out.println("Terminal is filled with random travelers going places. " +
                     "While you panic about losing the company spaceship");
+        } else if(choice.equalsIgnoreCase("Pickup Garbage")) {
+            inventory[1] = "Garbage";
+            System.out.println("I mean... that's what you wanted. You got Garbage now.");
+        } else if(choice.equalsIgnoreCase("Drop Garbage")) {
+            inventory[1] = null;
+            System.out.println("Don't know why you had Garbage in the first place.");
+        } else if(choice.equalsIgnoreCase("Use Garbage") && inventory[1].equalsIgnoreCase("Garbage")) {
+            System.out.println("Curiosity got the better of you and you eat some of the garbage.... Why!");
+            inventory[1] = null;
+            System.out.println("With how badly it tasted. You drop the garbage.");
+            System.out.println("Again why did you taste it.");
+        } else if (choice.equalsIgnoreCase("Use Garbage") && inventory[1] == null) {
+            System.out.println("If you want to use the garbage. You would need to pick it up first.");
         }
         else if (choice.equalsIgnoreCase("Go North")) {
             System.out.println("You went north!");
