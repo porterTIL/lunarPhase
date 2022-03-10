@@ -58,6 +58,7 @@ public class Driver {
 
         System.out.println("Welcome to spaceport that you called home.... for now.");
         System.out.println("In the middle of the room there is an empty paper coffee cup");
+        System.out.println("Looks like the coffee was drank by a random person that is standing creepily in the corner.");
         System.out.println("From here you can go to north, which miiiiight be north.");
 
         System.out.println(" What would you like to do? Hint: go north maybe");
@@ -72,7 +73,11 @@ public class Driver {
             for (String item : inventory) {
                 System.out.println(item);
             }
-        } else if (choice.equalsIgnoreCase("Go North")) {
+        } else if (choice.equalsIgnoreCase("Talk Creep")) {
+            System.out.println("Yea that's my garbage! What you going to do about it!");
+            System.out.println("As you turn around to walk away.... He sucker punches you!");
+        }
+        else if (choice.equalsIgnoreCase("Go North")) {
             System.out.println("You went north!");
             System.out.println("Whoops bad hint. You died!");
             System.out.println("New Hint: I'm an unreliable narrator!");
