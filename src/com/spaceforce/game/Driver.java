@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Driver {
     public static void main(String[] args) {
+        String[] inventory = {"Single Broken Cigarette"};
         Scanner userInput = new Scanner(System.in);
 
         System.out.println("This is a text based adventure where you lost the company spaceship.");
@@ -31,6 +32,10 @@ public class Driver {
         if (choice.equalsIgnoreCase("Q")) {
             System.out.println("Whelp, you jumped into a black hole. Goodbye!");
             System.exit(0);
+        } else if (choice.equalsIgnoreCase("inventory")){
+            for (String item : inventory) {
+                System.out.println(item);
+            }
         } else if (choice.equalsIgnoreCase("y")) {
             System.out.println("You went north!");
             System.out.println("Whoops bad hint. You died!");
