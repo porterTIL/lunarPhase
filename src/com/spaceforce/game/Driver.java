@@ -1,5 +1,6 @@
 package com.spaceforce.game;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Driver {
@@ -70,18 +71,27 @@ public class Driver {
         if (choice.equalsIgnoreCase("Q")) {
             System.out.println("Whelp, you jumped into a black hole. Goodbye!");
             System.exit(0);
-        } else if (choice.equalsIgnoreCase("inventory")){
+        } else if (choice.equalsIgnoreCase("inventory")) {
             for (String item : inventory) {
                 System.out.println(item);
             }
         } else if (choice.equalsIgnoreCase("Talk Creep")) {
-            System.out.println("Yea that's my garbage! What you going to do about it!");
-            System.out.println("As you turn around to walk away.... He sucker punches you!");
-            health -= 1;
-            System.out.println("You took damage.");
-            System.out.println("Health: " + health + "/3");
-        }
-        else if (choice.equalsIgnoreCase("Go North")) {
+
+            Random random = new Random();
+            int randomReply = random.nextInt(2); //Upper bound exclusive
+
+            if (randomReply == 0) {
+                System.out.println("You see there is garbage next to the Creeper and tell him to pick it");
+                System.out.println("Yea that's my garbage! What you going to do about it!");
+                System.out.println("As you turn around to walk away.... He sucker punches you!");
+                health -= 1;
+                System.out.println("You took damage.");
+                System.out.println("Health: " + health + "/3");
+            } else if (randomReply == 1) {
+                System.out.println("You see there is garbage next to the Creeper and tell him to pick it");
+                System.out.println("Creeper picks up his garbage and starts to walk away and drops it back on the ground");
+            }
+        } else if (choice.equalsIgnoreCase("Go North")) {
             System.out.println("You went north!");
             System.out.println("Whoops bad hint. You died!");
             System.out.println("New Hint: I'm an unreliable narrator!");
