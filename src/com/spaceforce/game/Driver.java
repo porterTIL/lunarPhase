@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Driver {
     public static void main(String[] args) {
+        int health = 3;
         String[] inventory = {"Single Broken Cigarette"};
         Scanner userInput = new Scanner(System.in);
 
@@ -76,6 +77,9 @@ public class Driver {
         } else if (choice.equalsIgnoreCase("Talk Creep")) {
             System.out.println("Yea that's my garbage! What you going to do about it!");
             System.out.println("As you turn around to walk away.... He sucker punches you!");
+            health -= 1;
+            System.out.println("You took damage.");
+            System.out.println("Health: " + health + "/3");
         }
         else if (choice.equalsIgnoreCase("Go North")) {
             System.out.println("You went north!");
