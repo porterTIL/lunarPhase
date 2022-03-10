@@ -6,11 +6,13 @@ public class Driver {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
 
-
-        System.out.println("Welcome to the game.");
+        System.out.println("This is a text based adventure where you lost the company spaceship.");
+        System.out.println("In order to not lose your job you need to find it before anyone notices it gone!");
+        System.out.println("Will you take on the challenge of not getting fired!");
         System.out.println("Press any key to start the game.");
         userInput.nextLine();
 
+        System.out.println("Welcome to the game.");
         System.out.println("These are your commands.");
         System.out.println("Talk, Look, Pickup, Go, Use, Drop");
         System.out.println("You can try to scream but no one will hear you.");
