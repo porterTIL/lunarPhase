@@ -1,0 +1,11 @@
+
+[
+    {
+      "name" : "Pablo",
+      "description": "Default NPC"
+    },
+  {
+    "name" : "Lisa",
+    "description" : "Second NPC"
+  }
+  ]

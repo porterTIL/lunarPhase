@@ -3,6 +3,7 @@ package com.spaceforce.fileParsing;
 
 import com.spaceforce.obj.Item;
 import com.spaceforce.obj.Location;
+import com.spaceforce.obj.NPC;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -19,50 +20,61 @@ public class JsonImporter {
     static ArrayNode locationNodes;
     static ArrayNode itemNodes;
     static ArrayNode npcNodes;
+
     static { //static game object node arrays
         try {
             locationNodes = (ArrayNode) objectMapper.readTree(new FileInputStream("src/com/spaceforce/fileParsing/data/locations.json"));
             //itemNodes = (ArrayNode) objectMapper.readTree(new FileInputStream("src/com/spaceforce/fileParsing/data/items.json"));
-            //npcNodes = (ArrayNode) objectMapper.readTree(new FileInputStream("src/com/spaceforce/fileParsing/data/npcs.json"));
+            npcNodes = (ArrayNode) objectMapper.readTree(new FileInputStream("src/com/spaceforce/fileParsing/data/npcs.json"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
     //Checks provided id against json Location objects
-    public static Location parseLocation(int id) throws IOException{
+    public static Location parseLocation(int id) throws IOException {
         Location location = null;
         //If json file has location of that id return it. Else throw exception
-            if(locationNodes.has(id)){
-                 location = objectMapper.readValue(locationNodes.get(id), Location.class);
-                System.out.println(location.introMessage);
-                 return location;
-            }
-        if(location == null) throw new IOException("Location of id:"+id+" does not exist in json data file");
+        if (locationNodes.has(id)) {
+            location = objectMapper.readValue(locationNodes.get(id), Location.class);
+            return location;
+        }
+        if (location == null) throw new IOException("Location of id:" + id + " does not exist in json data file");
         return location;
     }
 
     //Checks provided id against json Item objects
-    public static Item parseItem(String id) throws IOException{
+    public static Item parseItem(String id) throws IOException {
         Item item = null;
         //for each json node, if its id matches map it as an Item and return it. Else throw exception
-        for(JsonNode jsonNode: itemNodes){
-            if(jsonNode.get("$id").toString().equalsIgnoreCase(id)){
+        for (JsonNode jsonNode : itemNodes) {
+            if (jsonNode.get("$id").toString().equalsIgnoreCase(id)) {
                 item = objectMapper.readValue(jsonNode, Item.class);
             }
         }
-        if(item == null) throw new IOException("Location of id:"+id+" does not exist in json data file");
+        if (item == null) throw new IOException("Location of id:" + id + " does not exist in json data file");
         return item;
+    }
+    //Checks provided id against json NPC objects
+    public static NPC parseNPC(int id) throws IOException {
+        NPC npc = null;
+
+            if (npcNodes.has(id)) {
+                npc = objectMapper.readValue(npcNodes.get(id), NPC.class);
+                return npc;
+            }
+        if (npc == null) throw new IOException("Location of id:" + id + " does not exist in json data file");
+        return npc;
     }
 
     /*
-    //Checks provided id against json NPC objects
-    public static NPC parseNPC(String id) throws IOException{
-        NPC npc = null;
-        //for each json node, if its id matches map it as an NPC and return it. Else throw exception
+    //Checks provided id against json com.spaceforce.obj.NPC objects
+    public static com.spaceforce.obj.NPC parseNPC(String id) throws IOException{
+        com.spaceforce.obj.NPC npc = null;
+        //for each json node, if its id matches map it as an com.spaceforce.obj.NPC and return it. Else throw exception
         for(JsonNode jsonNode: npcNodes){
             if(jsonNode.get("$id").toString().equalsIgnoreCase(id)){
-                npc = objectMapper.readValue(jsonNode, NPC.class);
+                npc = objectMapper.readValue(jsonNode, com.spaceforce.obj.NPC.class);
             }
         }
         if(npc == null) throw new IOException("Location of id:"+id+" does not exist in json data file");
@@ -112,17 +124,17 @@ public class JsonImporter {
             }
         }
     }
-
-     */
-
+*/
 
 
     public static void main(String[] args) {
-        try{
+        try {
             Location location = parseLocation(0);
             System.out.println(location.description);
-            System.out.println(location.items[0].description);
-        }  catch (IOException e) {
+            NPC npc = parseNPC(1);
+            System.out.println(npc.name);
+            System.out.println(npc.description);
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
