@@ -1,40 +1,47 @@
+import javax.swing.text.View;
 import java.io.File;
 
-public class Item implements Interaction{
-    File itemFile;
+public class Item implements Interaction {
 
-    // should we have an index of location files and give each location it's own file?
-    private  Item(File itemFile){
-        itemFile = this.itemFile;
+    public String lookMsg = "Why you trying to look at that";
+    public String talkMsg = "You obviously been in space for too long that you are " +
+            "try to speak to an item";
+    public String pickMsg = "You have picked up ";
+    public String nonpickMsg = "Your pathetic space arms were not able to pick it up";
+    public String goMsg = "You try to make it go, but it comes right back";
+    public String dropMsg = "You have dropped ";
+    public String useMsg = "You have used ";
+    public String name = "What's my name?";
+    public boolean grabbable;
+
+
+    public void look() {
+        // System.out.println(location.item.description);
+        View.renderText(lookMsg);
     }
 
-    Item createItem(File itemFile){
-        return new Item(itemFile);
+    public void talk() {
+        View.renderText(talkMsg);
     }
 
-    // TODO: read location description from JSON
-    public void look(){
-        // System.out.println(itemFile.description);
-    };
-
-    public void talk(){
-        System.out.println("Talking to inanimate objects is the first sign of space psychosis");
+    public void pickup() {
+        if (grabbable == true) {
+            View.renderText(pickMsg + name );
+        } else {
+            View.rendertext(nonpickMsg);
+        }
     }
 
-    public void pickup(){
-        // add item to inventory
-    };
+    public void go() { // IN IMPLEMENTATION COMPARE USER INPUT TO REACHABLE LOCATIONS FROM THIS LOCATION
+        View.renderText(goMsg);
+    }
 
-    public void go(){ // IN IMPLEMENTATION COMPARE USER INPUT TO REACHABLE LOCATIONS FROM THIS LOCATION
-        System.out.println("You tell it to go, but it just can't seem to leave you");
-    };
+    public void drop() {
+        View.renderText(dropMsg + name);
+    }
 
-    public void drop(){
-        // remove item from inventory
-        // place item into location
-    };
+    public void use() {
+        View.renderText(useMsg + name);
+    }
 
-    public void use(){
-        // item specific behavior
-    };
 }
