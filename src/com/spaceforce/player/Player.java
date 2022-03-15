@@ -5,10 +5,10 @@ import com.spaceforce.util.ui.View;
 import java.util.ArrayList;
 import java.util.List;
 
-final class Player {
+final public class Player {
     private String name;
     //private Item[] inventory = new Item[10];
-    static List<Item> inventory = new ArrayList<>(10);
+    private static List<Item> inventory = new ArrayList<>(10);
     private int health = 10;
 
     public Player(){}
@@ -21,7 +21,7 @@ final class Player {
          this.name = name;
      }
 
-     public List<Item> getInventory() {
+     static public List<Item> getInventory() {
          return inventory;
      }
 
