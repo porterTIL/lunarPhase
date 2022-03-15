@@ -1,4 +1,4 @@
-package com.spaceforce.fileParsing;
+package com.spaceforce.util.fileParsing;
 
 import com.spaceforce.obj.Location;
 

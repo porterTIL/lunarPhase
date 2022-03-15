@@ -1,8 +1,6 @@
-package com.spaceforce.fileParsing;
+package com.spaceforce.util.fileParsing;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.github.cliftonlabs.json_simple.JsonObject;
-import com.spaceforce.fileParsing.JsonImporter;
 import com.spaceforce.obj.Item;
 import com.spaceforce.obj.Location;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -49,7 +47,7 @@ public class JsonImporterTestSuite {
     public void createItemFromJsonTest(){
         try{
             Item variable = JsonImporter.parseItem(0);
-            assertEquals(variable.description, control.get("description"));
+            assertEquals(variable.lookMsg, control.get("description"));
         } catch (IOException e) {
             e.printStackTrace();
         }
