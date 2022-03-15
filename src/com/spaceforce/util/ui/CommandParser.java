@@ -1,10 +1,10 @@
 package com.spaceforce.util.ui;
 
-import com.spaceforce.NPC;
 import com.spaceforce.obj.Item;
-import com.spaceforce.fileParsing.GameMap;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.spaceforce.obj.NPC;
+import com.spaceforce.player.Player;
+import com.spaceforce.util.fileParsing.GameMap;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,7 +20,7 @@ public class CommandParser {
 
     static private List<Item> getActionSubjectList(String request) {
         List<Item> validNouns = new ArrayList<>();
-        List<Item> inventory = Player.inventory;
+        List<Item> inventory = Player.getInventory();
         Item[] locationItems = GameMap.currentLocation.items;
         NPC[] locationNpcs = GameMap.currentLocation.npcs;
         return validNouns;

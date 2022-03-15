@@ -1,6 +1,7 @@
 package com.spaceforce.util.ui;
 
 import com.spaceforce.game.Game;
+import com.spaceforce.player.Player;
 
 import java.util.Scanner;
 
@@ -25,7 +26,7 @@ public class UserInterface {
                     break;
 
                 case "INVENTORY":
-                    View.renderText(Player.getInventory());
+                    View.renderText(Player.getInventory().toString());
                     break;
 
                 case "EXIT":

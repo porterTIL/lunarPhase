@@ -8,7 +8,7 @@ public class Game {
 
     private Game(){}
 
-    static void displayIntro(){
+    public static void displayIntro(){
          View.renderImage(new File("Resources/Images/birdLogo.txt"));
     }
     public static void newGame(){
@@ -26,7 +26,7 @@ public class Game {
         View.renderText("To look at current inventory. Type in \"Inventory\"");
     }
 
-    static void save(){
+    public static void save(){
         // View.renderText("Game Saved");
         // write to save file current area, all area objects alive in Map, and current inventory
     }
