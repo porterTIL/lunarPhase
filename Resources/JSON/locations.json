@@ -1,0 +1,8 @@
+[
+  {
+    "name": "start",
+    "introMsg": "WHERE DID THE SHIP GO?!",
+    "itemIds": [0],
+    "talkMsg": "stinky"
+  }
+]
