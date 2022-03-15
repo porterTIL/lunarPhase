@@ -1,3 +1,5 @@
+import com.spaceforce.View;
+
 import java.io.File;
 
 public class Game {
@@ -22,7 +24,7 @@ public class Game {
         View.renderText("To look at current inventory. Type in \"Inventory\"");
     }
     static void save(){
-        // View.renderText("Game Saved");
+        // com.spaceforce.View.renderText("Game Saved");
         // write to save file current area, all area objects alive in Map, and current inventory
     }
     static void exit(){

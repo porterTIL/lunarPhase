@@ -1,13 +1,13 @@
+import com.spaceforce.View;
 import com.spaceforce.obj.Item;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 final class Player {
     private String name;
     //private Item[] inventory = new Item[10];
-    List<Item> inventory = new ArrayList<>(10);
+    static List<Item> inventory = new ArrayList<>(10);
     private int health = 10;
 
     public Player(){}
@@ -37,7 +37,7 @@ final class Player {
      }
 
      public boolean checkInventory(Item item){
-         View.renderText();
+//         View.renderText("");
          return true;
      }
      public List<Item> addItem(Item item){

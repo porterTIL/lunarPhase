@@ -1,20 +1,23 @@
 package com.spaceforce;
 
 public interface Interaction {
-    enum CommandList {talk("chat", "communicate"), look(), pickup, go, use, drop;
-        String[] synonyms;
-        CommandList(String... synonyms){
-            this.synonyms = synonyms;
-        }
-        public void execute(Interaction interactable){
-            if(this.name().equals(talk.name())){
-                interactable.talk();
-            } // for(synonym :talk)
-            //talk (and other commands) return true or false if they were ran on a successful target.
-            //if(talk was true){changeGame(verb, noun)}
+
+    default void interact(String action) {
+        switch (action.toUpperCase()) {
+            case "TALK":
+                this.talk();
+            case "LOOK":
+                this.look();
+            case "PICKUP":
+                this.pickup();
+            case "GO":
+                this.go();
+            case "USE":
+                this.use();
+            case "DROP":
+                this.drop();
         }
     }
-
     void talk();
     void look();
     void pickup();

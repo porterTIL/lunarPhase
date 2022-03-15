@@ -1,12 +1,14 @@
 package com.spaceforce.obj;
 
 import com.spaceforce.Interaction;
+import com.spaceforce.NPC;
+import com.spaceforce.View;
 import com.spaceforce.fileParsing.JsonImporter;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static com.spaceforce.Interaction.CommandList.talk;
+//import static com.spaceforce.Interaction.CommandList.talk;
 
 public class Location implements Interaction{
     public String name;
@@ -19,8 +21,8 @@ public class Location implements Interaction{
     public String useMsg = "This isn't a bathroom!";
     public String dropMsg = "Try picking this up before you drop it";
     Map<String, Item> exits; //name of valid locations to move to
-    Item[] items;
-    //Npc[] npcs;
+    public Item[] items;
+    public NPC[] npcs;
     private Location(){}
 
     //initializes items from id array

@@ -21,7 +21,7 @@ public class UserInterface {
                     break;
 
                 case "INVENTORY":
-//                    View.renderText(Player.getInventory());
+//                    com.spaceforce.View.renderText(Player.getInventory());
                     break;
 
                 case "EXIT":
@@ -33,15 +33,16 @@ public class UserInterface {
 //                    currentLocal = GameMap.currentLocation;
 //                    ActionSubject subject;
 //
-//                    if (Inventory.items.contains(noun)){
-//                            subject = Inventory.getItem()
+//                    if (Player.inventory.contains(noun)){
+//                            Item subject = Player.inventory.getItem()
+//
 //                    }
 //                     else if (currentLocal.items.contains(subject) || currentLocal.npcs.contains(subject)){
 //                            subject = currentLocal.getSubject()
 //                      }
 //
 //                    if (subject.equals(null)){
-//                         View.renderText("This subject is not in sight")
+//                         com.spaceforce.View.renderText("This subject is not in sight")
 //                         continue;
 //                    }
 //                    else if (verb.equals(pickup) && subject.grabbable){
