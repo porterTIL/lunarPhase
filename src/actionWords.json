@@ -1,0 +1,19 @@
+{
+ "talk": ["talk", "argue", "confer", "consult", "interview", "negotiate", "reach out", "commune", "confabulate",
+       "confide", "deliberate", "reason", "chat", "communicate", "express", "reveal", "say", "sing", "speak",
+       "tell", "articulate", "babble", "chant", "confess", "converse", "gossip", "persuade", "spill the beans"],
+
+ "look": ["look", "consider", "glance", "notice", "peer", "peek", "read", "see", "stare", "study", "view", "watch",
+       "behold", "contemplate", "eye", "gawk", "gaze", "glower", "inspect", "observe", "ogle", "peep", "regard", "scan",
+        "scout", "get a load of", "take a gander"],
+
+ "pickup": ["pickup", "pick up", "grab", "take", "gather", "grasp", "hoist", "acquire", "buy", "gain", "get", "purchase", "score", "take", "extract",
+   "procure", "secure", "happen upon"],
+
+  "go": ["go", "flee", "move", "travel", "abscond", "approach", "escape", "hightail", "mosey", "withdraw", "beat it", "bug out",
+    "get away", "hit the road", "make a break for it", "move out", "run away", "take off"],
+
+ "use": ["use", "apply", "employ", "exploit", "manage", "handle", "manipulate", "operate", "utilize", "wield", "work"],
+
+ "drop": ["drop", "lose", "ditch", "86", "throw away", "abandon", "dump", "release", "put down"]
+}
