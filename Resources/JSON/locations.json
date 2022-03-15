@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Tutorial",
+    "introMessage": "Make sure to grab that item before you go",
+    "items": [
+      {
+        "name": "item",
+        "description": "It's an item alright, although you can't tell much more."
+      }
+    ]
+  },
+  {
+    "introMessage": "This is a neat lookin' spaceport",
+    "description": "Spaceport"
+  },
+  {
+    "description": "Mars"
+  },
+  {
+    "description": "Earth"
+  }
+]
