@@ -21,7 +21,7 @@ public class Location {
                 }
                 break;
             case "take":
-                Item item = findItem(noun);
+                //Item item = findItem(noun);
                 if (item == null){
                     System.out.println("");
                 } else {
@@ -29,8 +29,8 @@ public class Location {
                 }
                 break;
             case "look":
-                Item item = findItem(noun);
-                if (noun.equalsIgnoreCase().){
+                //Item item = findItem(noun);
+                if (item==null){
                     System.out.println("");
                 } else {
                     item.look();
