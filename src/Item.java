@@ -1,4 +1,4 @@
-import javax.swing.text.View;
+import com.spaceforce.Interaction;
 import java.io.File;
 
 public class Item implements Interaction {
@@ -28,7 +28,7 @@ public class Item implements Interaction {
         if (grabbable == true) {
             View.renderText(pickMsg + name );
         } else {
-            View.rendertext(nonpickMsg);
+            View.renderText(nonpickMsg);
         }
     }
 

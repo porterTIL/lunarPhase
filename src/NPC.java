@@ -1,4 +1,5 @@
-import javax.swing.text.View;
+import com.spaceforce.Interaction;
+
 
 public class NPC implements Interaction {
 
@@ -12,31 +13,32 @@ public class NPC implements Interaction {
 
 
     public void talk() {
-        View.rendertext(lookMsg);
+        View.renderText(lookMsg);
     }
 
 
     public void look() {
-        View.rendertext(talkMsg);
+        View.renderText(talkMsg);
     }
 
 
     public void pickup() {
-        View.rendertext(pickMsg);
+        View.renderText(pickMsg);
     }
 
 
     public void go() {
-        View.rendertext(goMsg);
+        View.renderText(goMsg);
     }
 
 
     public void use() {
-        View.rendertext(useMsg);
+        View.renderText(useMsg);
     }
 
 
     public void drop() {
-        View.rendertext(dropMsg);
+        View.renderText(dropMsg);
     }
 }
+
