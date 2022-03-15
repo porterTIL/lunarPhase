@@ -48,6 +48,16 @@ public class CommandParser {
         // consider negations (without, not)
         // if you use the word my, can we replace that with inventory?
 
+            // TODO: file path should be relative
+            File garbageWordsFile = new File("C:\\StudentWork\\IntmJ\\workspace\\lunarPhase\\src\\garbageWords.txt");
+            try (BufferedReader garbageFeed = new BufferedReader(new FileReader(garbageWordsFile))) {   // the BufferedReader wraps around the FileReader to make file reads more efficient
+                String garbageWord;
+                while ((garbageWord = garbageFeed.readLine()) != null) {
+                    request = request.replaceAll("\\b" + garbageWord.toUpperCase() + "\\b", "");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
             return request;
     }
 }
