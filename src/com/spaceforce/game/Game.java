@@ -1,11 +1,11 @@
 package com.spaceforce.game;
 
+import com.spaceforce.player.save.Save;
 import com.spaceforce.util.ui.View;
 
 import java.io.File;
 
 public class Game {
-
     private Game(){}
 
     public static void displayIntro(){
@@ -29,6 +29,13 @@ public class Game {
     public static void save(){
         // View.renderText("Game Saved");
         // write to save file current area, all area objects alive in Map, and current inventory
+        Save.saveData();
+    }
+    public static boolean load(){
+        if(Save.hasSave()){
+            Save.loadData();
+            return true;
+        } else return false;
     }
     public static void exit(){
         System.exit(0);
