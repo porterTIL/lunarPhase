@@ -1,5 +1,6 @@
 package com.spaceforce.util.ui;
 
+import com.spaceforce.obj.Interaction;
 import com.spaceforce.obj.Item;
 
 import com.spaceforce.obj.NPC;
@@ -18,16 +19,29 @@ import static com.spaceforce.util.fileParsing.JsonImporter.objectMapper;
 public class CommandParser {
     private CommandParser(){}
 
-    static private List<Item> getActionSubjectList(String request) {
-        List<Item> validNouns = new ArrayList<>();
-        List<Item> inventory = Player.getInventory();
-        Item[] locationItems = GameMap.currentLocation.items;
-        NPC[] locationNpcs = GameMap.currentLocation.npcs;
-        return validNouns;
+    static public Interaction getTarget(String request){
+        List<Item> inventoryTargets = Player.getInventory();
+        for (Item target : inventoryTargets) {
+            if (request.contains(target.name)) {
+                return target;
+            }
+        }
+        Item[] locationItemTargets = GameMap.currentLocation.items;
+        for (Item target : locationItemTargets) {
+            if (request.contains(target.name)) {
+                return target;
+            }
+        }
+        NPC[] locationNPCTargets = GameMap.currentLocation.npcs;
+        for (NPC target : locationNPCTargets){
+            if (request.contains(target.name)){
+                return target;
+            }
+        }
+        return null;
     }
 
-    static private List<String> getActionList() {
-
+    static public String getAction(String request){
         List<String> validVerbs = new ArrayList<>();
         validVerbs.add("TALK");
         validVerbs.add("LOOK");
@@ -35,8 +49,15 @@ public class CommandParser {
         validVerbs.add("USE");
         validVerbs.add("GO");
         validVerbs.add("DROP");
-        return validVerbs;
+        for (String verb : validVerbs){
+            if (request.contains(verb)){
+                return verb;
+            }
+        }
+        return null;
     }
+
+
 
     // static Map actionWords = new HashMap(JsonImporter.parseDictionary());
 
