@@ -16,17 +16,12 @@ public class GameMap {
         //if locations hasn't been initialized, initialize it.
         if(locations == null){
             locations = formatArray(JsonImporter.parseAllLocations());
-            if(locations.containsKey(startKey)){
-                currentLocation = locations.get(startKey);
-            } else {
-                currentLocation = (Location) locations.values().toArray()[0];
-            }
         } else {
             System.out.println("Already initialized");
         }
     }
     //Turns Location Array into a map with names as the key
-    static Map formatArray(Location[] locationsArray){
+    static Map<String, Location> formatArray(Location[] locationsArray){
         Map<String, Location> localMap = new HashMap<>();
         for(Location location: locationsArray){
             localMap.put(location.name, location);
@@ -41,6 +36,13 @@ public class GameMap {
         } else {
             throw new IOException(); //TODO write message
         }
+    }
+
+    public static Map<String, Location> getWorldState(){
+        return locations;
+    }
+    public static void setWorldState(Map map){
+        locations = map;
     }
 
 

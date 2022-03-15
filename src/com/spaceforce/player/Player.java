@@ -6,7 +6,7 @@ import com.spaceforce.util.ui.View;
 import java.util.ArrayList;
 import java.util.List;
 
-final class Player {
+public final class Player {
     private String name;
     //private com.spaceforce.obj.Item[] inventory = new com.spaceforce.obj.Item[10];
     List<Item> inventory = new ArrayList<>(10);
