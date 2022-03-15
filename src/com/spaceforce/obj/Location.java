@@ -1,5 +1,6 @@
 package com.spaceforce.obj;
 
+import com.spaceforce.NPC;
 import com.spaceforce.util.fileParsing.JsonImporter;
 import com.spaceforce.util.ui.View;
 
@@ -17,8 +18,8 @@ public class Location implements Interaction{
     public String useMsg = "This isn't a bathroom!";
     public String dropMsg = "Try picking this up before you drop it";
     Map<String, Item> exits; //name of valid locations to move to
-    Item[] items;
-    //Npc[] npcs;
+    public Item[] items;
+    public NPC[] npcs;
     private Location(){}
 
     //initializes items from id array

@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class GameMap {
     final static String startKey = "start";
-    static Location currentLocation;
+    public static Location currentLocation;
     static Map<String, Location> locations;
 
     //fills static values

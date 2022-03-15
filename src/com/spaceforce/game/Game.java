@@ -8,7 +8,7 @@ import java.io.File;
 public class Game {
     private Game(){}
 
-    static void displayIntro(){
+    public static void displayIntro(){
          View.renderImage(new File("Resources/Images/birdLogo.txt"));
     }
     public static void newGame(){
@@ -25,8 +25,9 @@ public class Game {
         View.renderText("Example: Go spaceport");
         View.renderText("To look at current inventory. Type in \"Inventory\"");
     }
+
     public static void save(){
-        // com.spaceforce.util.ui.View.renderText("com.spaceforce.game.Game Saved");
+        // View.renderText("Game Saved");
         // write to save file current area, all area objects alive in Map, and current inventory
         Save.saveData();
     }
