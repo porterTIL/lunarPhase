@@ -12,12 +12,11 @@ public class LunarGame {
         Location currentLocation = JsonImporter.parseLocation(0);
         String[] input = null;
         while(true){
-            while(input == null||input.length != 2) input = parseInput(in.nextLine());
-            currentLocation.parseCommand(input[0], input[1]);
+            while(input == null||input.length != 2) input = breakString(in.nextLine());
             input=null;
         }
     }
-    static String[] parseInput(String scannerIn){
+    static String[] breakString(String scannerIn){
         return scannerIn.split(" ");
     }
    /* String playerCommands[] = new ArrayList<>("look", "take", "go");
