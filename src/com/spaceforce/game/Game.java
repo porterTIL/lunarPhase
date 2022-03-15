@@ -1,3 +1,7 @@
+package com.spaceforce.game;
+
+import com.spaceforce.util.ui.View;
+
 import java.io.File;
 
 public class Game {
@@ -5,14 +9,14 @@ public class Game {
     private Game(){}
 
     static void displayIntro(){
-         View.renderImage(new File("src/birdLogo.txt"));
+         View.renderImage(new File("Resources/Images/birdLogo.txt"));
     }
-    static void newGame(){
+    public static void newGame(){
 //         Map.init();
 //         Map.goTo(Map.area1);
-//         UserInterface.beginInput();
+//         com.spaceforce.util.ui.UserInterface.beginInput();
     }
-    static void help(){
+    public static void help(){
         // put these lines of text into a file for game messages
         View.renderText("These are your commands.");
         View.renderText("Talk, Look, Pickup, Go, Use, Drop");
@@ -21,11 +25,11 @@ public class Game {
         View.renderText("Example: Go spaceport");
         View.renderText("To look at current inventory. Type in \"Inventory\"");
     }
-    static void save(){
-        // View.renderText("Game Saved");
+    public static void save(){
+        // com.spaceforce.util.ui.View.renderText("com.spaceforce.game.Game Saved");
         // write to save file current area, all area objects alive in Map, and current inventory
     }
-    static void exit(){
+    public static void exit(){
         System.exit(0);
     }
 }

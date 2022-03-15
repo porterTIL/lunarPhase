@@ -1,3 +1,7 @@
+package com.spaceforce.util.ui;
+
+import com.spaceforce.game.Game;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -21,7 +25,7 @@ public class UserInterface {
                     break;
 
                 case "INVENTORY":
-//                    View.renderText(Player.getInventory());
+//                    com.spaceforce.util.ui.View.renderText(Player.getInventory());
                     break;
 
                 case "EXIT":
@@ -29,7 +33,7 @@ public class UserInterface {
                     return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
 
                 default:
-//                    userRequest = CommandParser.parse(userRequest);
+//                    userRequest = com.spaceforce.util.ui.CommandParser.parse(userRequest);
 //                    currentLocal = GameMap.currentLocation;
 //                    ActionSubject subject;
 //
@@ -41,7 +45,7 @@ public class UserInterface {
 //                      }
 //
 //                    if (subject.equals(null)){
-//                         View.renderText("This subject is not in sight")
+//                         com.spaceforce.util.ui.View.renderText("This subject is not in sight")
 //                         continue;
 //                    }
 //                    else if (verb.equals(pickup) && subject.grabbable){

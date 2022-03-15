@@ -1,6 +1,6 @@
 package com.spaceforce.game;
 
-import com.spaceforce.fileParsing.JsonImporter;
+import com.spaceforce.util.fileParsing.JsonImporter;
 import com.spaceforce.obj.Location;
 
 import java.io.IOException;

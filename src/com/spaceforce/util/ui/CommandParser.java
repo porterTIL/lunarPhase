@@ -1,11 +1,12 @@
-import org.codehaus.jackson.map.ObjectMapper;
+package com.spaceforce.util.ui;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Map;
+
+import static com.spaceforce.util.fileParsing.JsonImporter.objectMapper;
 
 public class CommandParser {
     private CommandParser(){}
@@ -34,11 +35,9 @@ public class CommandParser {
     static private String findSynonyms(String request){
         // "leave" was in both "drop" and "go", it's been removed from the JSON for now
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            // TODO: give relative path
             // ObjectMapper.readValue takes File src and Class<T> valueType arguments, we want to a Map of our JSON
             // The ObjectMapper is putting the value field into an ArrayList, so we set our map to expect an ArrayList
-            Map<String, ArrayList<String>> map = mapper.readValue(Paths.get("C:\\StudentWork\\IntmJ\\workspace\\lunarPhase\\src\\actionWords.json").toFile(), Map.class);
+            Map<String, ArrayList<String>> map = objectMapper.readValue(new File("Resources/JSON/actionWords.json"), Map.class);
             for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()){ // for each key-value pair in our new map
                 for (String word : entry.getValue()){   // for each word in the value ArrayList
                     if (request.contains(word)){    // check to see if our request string contains that word
@@ -59,12 +58,11 @@ public class CommandParser {
         // consider conjunctions (and, but, so)
         // consider negations (without, not)
         // if you use the word my, can we replace that with inventory?
-
-            // TODO: file path should be relative
-            File garbageWordsFile = new File("C:\\StudentWork\\IntmJ\\workspace\\lunarPhase\\src\\garbageWords.txt");
+            File garbageWordsFile = new File("Resources/garbageWords.txt");
             try (BufferedReader garbageFeed = new BufferedReader(new FileReader(garbageWordsFile))) {   // the BufferedReader wraps around the FileReader to make file reads more efficient
                 String garbageWord;
                 while ((garbageWord = garbageFeed.readLine()) != null) {
+                    System.out.println(garbageWord);
                     request = request.replaceAll("\\b" + garbageWord.toUpperCase() + "\\b", ""); // the regex looks for the garbageWord with word delimeters on either side of it ex: preventing toga from removing to
                 }
             } catch (Exception e) {
