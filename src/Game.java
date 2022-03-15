@@ -1,9 +1,11 @@
+import java.io.File;
+
 public class Game {
 
     private Game(){}
 
     static void displayIntro(){
-        // View.renderImg()
+         View.renderImage(new File("src/birdLogo.txt"));
     }
     static void newGame(){
 //         Map.init();
