@@ -1,14 +1,11 @@
 package com.spaceforce.obj;
 
-import com.spaceforce.Interaction;
 import com.spaceforce.NPC;
-import com.spaceforce.View;
-import com.spaceforce.fileParsing.JsonImporter;
+import com.spaceforce.util.fileParsing.JsonImporter;
+import com.spaceforce.util.ui.View;
 
 import java.io.IOException;
 import java.util.Map;
-
-//import static com.spaceforce.Interaction.CommandList.talk;
 
 public class Location implements Interaction{
     public String name;
@@ -90,41 +87,3 @@ public class Location implements Interaction{
         View.renderText(dropMsg);
     }
 }
-
-/*
-    //look, take, go
-    public void parseCommand(String verb, String noun) {
-        switch(verb.toLowerCase()){
-            case "go": {
-                Item item = findItem(noun);
-                if (item == null) {
-                    System.out.println("");
-                } else {
-                    item.go();
-                }
-                break;
-            }
-            case "take": {
-                Item item = findItem(noun);
-                if (item == null) {
-                    System.out.println("");
-                } else {
-                    item.pickup();
-                }
-                break;
-            }
-            case "look": {
-                Item item = findItem(noun);
-                if (noun.equalsIgnoreCase("north")) {
-                    System.out.println("You see an item of some sort");
-                } else {
-                    item.look();
-                }
-                break;
-            }
-
-            default:
-                System.out.println("You tried to " + verb + ", but you stopped before you hurt yourself.");
-                break;
-        }
-    }*/

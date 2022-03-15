@@ -1,5 +1,6 @@
-import com.spaceforce.View;
+package com.spaceforce.player;
 import com.spaceforce.obj.Item;
+import com.spaceforce.util.ui.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,7 @@ final class Player {
      }
 
      public boolean checkInventory(Item item){
-//         View.renderText("");
+         View.renderText("");
          return true;
      }
      public List<Item> addItem(Item item){

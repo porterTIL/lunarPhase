@@ -1,38 +1,49 @@
 package com.spaceforce.obj;
 
-import com.spaceforce.Interaction;
+import com.spaceforce.util.ui.View;
+
+import java.io.File;
 
 public class Item implements Interaction {
-    public String description;
-    public String name;
-    @Override
-    public void talk() {
-        System.out.println("You start to talk to the "+name+" but you start to get weird looks and stop");
-    }
 
-    @Override
+    public String lookMsg = "Why you trying to look at that";
+    public String talkMsg = "You obviously been in space for too long that you are " +
+            "try to speak to an item";
+    public String pickMsg = "You have picked up ";
+    public String nonpickMsg = "Your pathetic space arms were not able to pick it up";
+    public String goMsg = "You try to make it go, but it comes right back";
+    public String dropMsg = "You have dropped ";
+    public String useMsg = "You have used ";
+    public String name = "What's my name?";
+    public boolean grabbable;
+
+
     public void look() {
-        System.out.println(description);
+        View.renderText(lookMsg);
     }
 
-    @Override
+    public void talk() {
+        View.renderText(talkMsg);
+    }
+
     public void pickup() {
-        look();
-        System.out.println(name+ " was added to your inventory.");
+        if (grabbable == true) {
+            View.renderText(pickMsg + name );
+        } else {
+            View.renderText(nonpickMsg);
+        }
     }
 
-    @Override
-    public void go() {
-        System.out.println("Time to g-- oh we're here.");
+    public void go() { // IN IMPLEMENTATION COMPARE USER INPUT TO REACHABLE LOCATIONS FROM THIS LOCATION
+        View.renderText(goMsg);
     }
 
-    @Override
-    public void use() {
-        System.out.println("You're doing something with it, although you're not sure how to describe it.");
-    }
-
-    @Override
     public void drop() {
-        System.out.println(name + " has stopped weighing you down.");
+        View.renderText(dropMsg + name);
     }
+
+    public void use() {
+        View.renderText(useMsg + name);
+    }
+
 }
