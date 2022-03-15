@@ -1,5 +1,4 @@
 package com.spaceforce.player;
-
 import com.spaceforce.obj.Item;
 import com.spaceforce.util.ui.View;
 
@@ -8,8 +7,8 @@ import java.util.List;
 
 final class Player {
     private String name;
-    //private com.spaceforce.obj.Item[] inventory = new com.spaceforce.obj.Item[10];
-    List<Item> inventory = new ArrayList<>(10);
+    //private Item[] inventory = new Item[10];
+    static List<Item> inventory = new ArrayList<>(10);
     private int health = 10;
 
     public Player(){}

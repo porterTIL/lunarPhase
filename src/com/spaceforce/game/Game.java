@@ -25,8 +25,9 @@ public class Game {
         View.renderText("Example: Go spaceport");
         View.renderText("To look at current inventory. Type in \"Inventory\"");
     }
-    public static void save(){
-        // com.spaceforce.util.ui.View.renderText("com.spaceforce.game.Game Saved");
+
+    static void save(){
+        // View.renderText("Game Saved");
         // write to save file current area, all area objects alive in Map, and current inventory
     }
     public static void exit(){

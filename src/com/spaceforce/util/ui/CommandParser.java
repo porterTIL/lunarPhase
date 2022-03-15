@@ -1,15 +1,42 @@
 package com.spaceforce.util.ui;
 
+import com.spaceforce.NPC;
+import com.spaceforce.obj.Item;
+import com.spaceforce.fileParsing.GameMap;
+
+import org.codehaus.jackson.map.ObjectMapper;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static com.spaceforce.util.fileParsing.JsonImporter.objectMapper;
 
 public class CommandParser {
     private CommandParser(){}
+
+    static private List<Item> getActionSubjectList(String request) {
+        List<Item> validNouns = new ArrayList<>();
+        List<Item> inventory = Player.inventory;
+        Item[] locationItems = GameMap.currentLocation.items;
+        NPC[] locationNpcs = GameMap.currentLocation.npcs;
+        return validNouns;
+    }
+
+    static private List<String> getActionList() {
+
+        List<String> validVerbs = new ArrayList<>();
+        validVerbs.add("TALK");
+        validVerbs.add("LOOK");
+        validVerbs.add("PICKUP");
+        validVerbs.add("USE");
+        validVerbs.add("GO");
+        validVerbs.add("DROP");
+        return validVerbs;
+    }
 
     // static Map actionWords = new HashMap(JsonImporter.parseDictionary());
 
