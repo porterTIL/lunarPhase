@@ -12,13 +12,19 @@ public class GameMap {
     static Map<String, Location> locations;
 
     //fills static values
-    public void init(){
+    public static void init(){
         //if locations hasn't been initialized, initialize it.
         if(locations == null){
             locations = formatArray(JsonImporter.parseAllLocations());
         } else {
             System.out.println("Already initialized");
         }
+        if(locations.containsKey("start")){
+            currentLocation = locations.get("start");
+        } else {
+            currentLocation = (Location)locations.values().toArray()[0];
+        }
+        currentLocation.initItems();
     }
     //Turns Location Array into a map with names as the key
     static Map<String, Location> formatArray(Location[] locationsArray){
@@ -30,9 +36,10 @@ public class GameMap {
     }
 
     //
-    public void goTo(String exit) throws IOException{
+    public static void goTo(String exit) throws IOException{
         if(currentLocation.checkExit(exit) && locations.containsKey(exit)){
             currentLocation = locations.get(exit);
+            currentLocation.initItems();
         } else {
             throw new IOException(); //TODO write message
         }

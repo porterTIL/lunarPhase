@@ -1,6 +1,5 @@
 package com.spaceforce.obj;
 
-import com.spaceforce.NPC;
 import com.spaceforce.util.fileParsing.JsonImporter;
 import com.spaceforce.util.ui.View;
 
@@ -23,8 +22,8 @@ public class Location implements Interaction{
     private Location(){}
 
     //initializes items from id array
-    void initItems(){
-        if(items == null && itemIds != null){
+    public void initItems(){
+        if(itemIds != null){
             items = new Item[itemIds.length];
             try{
                 for(int i=0; i < itemIds.length; i++){

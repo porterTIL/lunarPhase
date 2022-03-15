@@ -3,6 +3,7 @@ package com.spaceforce.util.ui;
 import com.spaceforce.obj.Interaction;
 import com.spaceforce.obj.Item;
 
+import com.spaceforce.obj.Location;
 import com.spaceforce.obj.NPC;
 import com.spaceforce.player.Player;
 import com.spaceforce.util.fileParsing.GameMap;
@@ -21,23 +22,32 @@ public class CommandParser {
 
     static public Interaction getTarget(String request){
         List<Item> inventoryTargets = Player.getInventory();
-        for (Item target : inventoryTargets) {
-            if (request.contains(target.name)) {
-                return target;
+        request = request.toUpperCase();
+        if ( inventoryTargets!= null) {
+            for (Item target : inventoryTargets) {
+                if (request.contains(target.name.toUpperCase())) {
+                    return target;
+                }
             }
         }
         Item[] locationItemTargets = GameMap.currentLocation.items;
-        for (Item target : locationItemTargets) {
-            if (request.contains(target.name)) {
-                return target;
+        if(locationItemTargets != null){
+            for (Item target : locationItemTargets) {
+                System.out.println(target.name);
+                if (request.contains(target.name.toUpperCase())) {
+                    return target;
+                }
             }
         }
         NPC[] locationNPCTargets = GameMap.currentLocation.npcs;
-        for (NPC target : locationNPCTargets){
-            if (request.contains(target.name)){
-                return target;
+        if(locationNPCTargets!= null){
+            for (NPC target : locationNPCTargets){
+                if (request.contains(target.name.toUpperCase())){
+                    return target;
+                }
             }
         }
+        if(request.contains(GameMap.currentLocation.name.toUpperCase())){}
         return null;
     }
 
@@ -110,7 +120,6 @@ public class CommandParser {
             try (BufferedReader garbageFeed = new BufferedReader(new FileReader(garbageWordsFile))) {   // the BufferedReader wraps around the FileReader to make file reads more efficient
                 String garbageWord;
                 while ((garbageWord = garbageFeed.readLine()) != null) {
-                    System.out.println(garbageWord);
                     request = request.replaceAll("\\b" + garbageWord.toUpperCase() + "\\b", ""); // the regex looks for the garbageWord with word delimeters on either side of it ex: preventing toga from removing to
                 }
             } catch (Exception e) {

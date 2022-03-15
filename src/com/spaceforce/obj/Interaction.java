@@ -12,12 +12,12 @@ public interface Interaction {
     void drop();
     default void interact(String action){
         switch(action.toUpperCase()){
-            case "TALK": this.talk();
-            case "LOOK": this.look();
-            case "PICKUP": this.pickup();
-            case "GO": this.go();
-            case "USE": this.use();
-            case "DROP": this.drop();
+            case "TALK": this.talk(); break;
+            case "LOOK": this.look(); break;
+            case "PICKUP": this.pickup(); break;
+            case "GO": this.go(); break;
+            case "USE": this.use(); break;
+            case "DROP": this.drop(); break;
         }
     }
     default boolean isGrabbable(){

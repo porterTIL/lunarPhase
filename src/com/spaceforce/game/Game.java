@@ -1,9 +1,14 @@
 package com.spaceforce.game;
 
+import com.spaceforce.obj.Item;
+import com.spaceforce.player.Player;
 import com.spaceforce.player.save.Save;
+import com.spaceforce.util.fileParsing.GameMap;
+import com.spaceforce.util.ui.UserInterface;
 import com.spaceforce.util.ui.View;
 
 import java.io.File;
+
 
 public class Game {
     private Game(){}
@@ -12,6 +17,12 @@ public class Game {
          View.renderImage(new File("Resources/Images/birdLogo.txt"));
     }
     public static void newGame(){
+        if(Save.hasSave()){
+            Save.loadData();
+        } else {
+            GameMap.init();
+            UserInterface.beginInput();
+        }
 //         Map.init();
 //         Map.goTo(Map.area1);
 //         com.spaceforce.util.ui.UserInterface.beginInput();
@@ -39,5 +50,13 @@ public class Game {
     }
     public static void exit(){
         System.exit(0);
+    }
+    public static void grabItem(Item selectedItem){
+        for(Item item : GameMap.currentLocation.items){
+            if(item.equals(selectedItem)){
+                Player.addItem(item);
+                item = null;
+            }
+        }
     }
 }

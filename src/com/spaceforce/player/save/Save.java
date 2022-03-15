@@ -40,9 +40,9 @@ public class Save {
     }
 
     void savePlayerInfo() {
-        this.name = Player.name;
-        this.health =Player.health;
-        this.inventory = Player.inventory;
+        this.name = Player.getName();
+        this.health =Player.getHealth();
+        this.inventory = Player.getInventory();
     }
     void loadPlayerInfo() {
 

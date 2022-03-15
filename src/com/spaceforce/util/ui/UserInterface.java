@@ -11,44 +11,72 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    private UserInterface(){}
+    private UserInterface() {
+    }
 
     // consider System.console().readLine() to take user input - it doesn't echo the input which may be good for style's sake
-    Scanner userInput = new Scanner(System.in);
+    static Scanner userInput = new Scanner(System.in);
 
-    void beginInput(){
-        while (true){
+    public boolean specialUse(Item item) {
+        switch (item.name) {
+            case "Garbage":
+        }
+        return false;
+    }
+
+    public static void beginInput() {
+        while (true) {
             String userRequest = userInput.next().toUpperCase(); // in what case can userRequest be null? what happens if it's an empty string?
 
             switch (userRequest) {
-                case "HELP" -> Game.help();
-                case "SAVE" -> Game.save();
-                case "INVENTORY" -> View.renderText(Player.getInventory().toString());
-                case "EXIT" -> {
+                case "HELP":
+                    Game.help();
+                    break;
+                case "SAVE":
+                    Game.save();
+                    break;
+                case "INVENTORY":
+                    View.renderText(Player.getInventory().toString());
+                    break;
+                case "EXIT": {
                     Game.exit();
                     return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
                 }
-                default -> {
+                default: {
                     userRequest = CommandParser.parse(userRequest);
                     Interaction requestTarget = null;
                     String requestAction = null;
-                    if (CommandParser.getTarget(userRequest) != null){
+                    if (CommandParser.getTarget(userRequest) != null) {
                         requestTarget = CommandParser.getTarget(userRequest);
                     }
-                    if (CommandParser.getAction(userRequest) != null){
+                    if (CommandParser.getAction(userRequest) != null) {
                         requestAction = CommandParser.getAction(userRequest);
                     }
-                    if (requestAction.equals("PICKUP") && requestTarget.isGrabbable()){
+                    if (requestAction != null && requestTarget != null) {
+                        if (requestAction.equals("PICKUP") && requestTarget.isGrabbable()) {
 //                        GameMap.currentLocation.items
-                        Player.addItem((Item)requestTarget);
-                    }
-                    if (requestAction != null && requestTarget != null){
-                        requestTarget.interact(requestAction);
-                }
-                    else {
+                            Game.grabItem((Item) requestTarget);
+                        }
+                        if (requestAction.equals("DROP") && Player.checkInventory((Item) requestTarget)) {
+                            Player.removeItem((Item) requestTarget);
+                        }
+                        if (requestAction.equals("GO") && GameMap.currentLocation.checkExit(((Location) requestTarget).name)) {
+                            GameMap.currentLocation = (Location) requestTarget;
+                        }
+                        if (requestAction.equals("USE")) {
+
+                        } else {
+                            requestTarget.interact(requestAction);
+                        }
+                    } else {
+                        System.out.println(requestAction);
+                        System.out.println(requestTarget);
                         View.renderText("Action cannot be completed");
                         Game.help();
                     }
+                }
+            }
+        }
 //                    ActionSubject subject;
 //
 //                    if (Player.inventory.contains(noun)){
@@ -72,7 +100,5 @@ public class UserInterface {
 //                     else {
 //                          noun.interact(verb);
 //                     }
-            }
-        }
     }
 }
