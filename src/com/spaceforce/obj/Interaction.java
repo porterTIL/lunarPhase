@@ -20,4 +20,7 @@ public interface Interaction {
             case "DROP": this.drop();
         }
     }
+    default boolean isGrabbable(){
+        return false;
+    }
 }

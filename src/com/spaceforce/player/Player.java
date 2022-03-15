@@ -41,7 +41,7 @@ final public class Player {
          View.renderText("");
          return true;
      }
-     public List<Item> addItem(Item item){
+     public static List<Item> addItem(Item item){
         //item = null;
        // for (int i = 0; i < inventory.size(); i++){
             inventory.add(item);//check if spot is null

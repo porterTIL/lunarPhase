@@ -45,5 +45,9 @@ public class Item implements Interaction {
     public void use() {
         View.renderText(useMsg + name);
     }
+   @Override
+   public boolean isGrabbable(){
+        return this.grabbable;
+   }
 
 }
